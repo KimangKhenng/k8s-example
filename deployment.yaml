@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tw-clone
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tw-clone
+  template:
+    metadata:
+      labels:
+        app: tw-clone
+    spec:
+      containers:
+      - name: tw-clone
+        image: kimang/tw-clone:latest
+        ports:
+        - containerPort: 4000
